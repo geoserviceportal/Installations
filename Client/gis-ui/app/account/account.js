@@ -5,8 +5,9 @@ angular.module('sbAdminApp')
         $stateProvider
             .state('login', {
                 url: '/login',
-                templateUrl:'app/account/login.html',
-                controller: 'LoginCtrl'
+                templateUrl:'app/account/login/login.html',
+                controller: 'LoginCtrl',
+                controllerAs: 'vm'
             })
             .state('logout', {
                 url: '/logout?referrer',

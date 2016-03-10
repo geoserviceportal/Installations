@@ -23,12 +23,19 @@ module.exports = function (grunt) {
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
-            bower: {
-                files: ['bower.json'],
-                tasks: ['wiredep']
+            injectJS: {
+                files: [
+                    '<%= yeoman.client %>/app/**/!(*.spec|*.mock).js',
+                    '<%= yeoman.client %>/app/app.js'
+                ],
+                tasks: ['injector:scripts']
+            },
+            injectCss: {
+                files: ['<%= yeoman.client %>/app/**/*.css'],
+                tasks: ['injector:css']
             },
             js: {
-                files: ['<%= yeoman.app %>/app/**/*.js', '!<%= yeoman.client %>/app/app.js'],
+                files: ['<%= yeoman.app %>/app/**/*.js', '<%= yeoman.client %>/app/app.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
@@ -50,6 +57,10 @@ module.exports = function (grunt) {
                     '.tmp/styles/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
+            },
+            bower: {
+                files: ['bower.json'],
+                tasks: ['wiredep']
             }
         },
 
@@ -129,12 +140,19 @@ module.exports = function (grunt) {
 
         // Automatically inject Bower components into the app
         wiredep: {
-            options: {
-                cwd: '<%= yeoman.app %>'
-            },
-            app: {
-                src: ['<%= yeoman.app %>/index.html'],
-                ignorePath: /\.\.\//
+            task: {
+                src: [
+                    '<%= yeoman.app %>/index.html'
+                ],
+                options: {
+                    cwd: '',
+                    dependencies: true,
+                    devDependencies: false,
+                    exclude: [],
+                    fileTypes: {},
+                    ignorePath: '',
+                    overrides: {}
+                }
             }
         },
 
@@ -155,22 +173,14 @@ module.exports = function (grunt) {
             html: '<%= yeoman.app %>/index.html',
             options: {
                 dest: '<%= yeoman.dist %>',
-                flow: {
-                    html: {
-                        steps: {
-                            js: ['concat', 'uglifyjs'],
-                            css: ['cssmin']
-                        },
-                        post: {}
-                    }
-                }
             }
         },
 
         // Performs rewrites based on filerev and the useminPrepare configuration
         usemin: {
-            html: ['<%= yeoman.dist %>/**/*.html'],
-            css: ['<%= yeoman.dist %>/**/*.css'],
+            html: ['<%= yeoman.dist %>/{,!(lib)/**/*.html'],
+            css: ['<%= yeoman.dist %>/{,!(lib){,*/}*.css'],
+            js: ['<%= yeoman.dist %>/{,!(lib){,*/}*.js'],
             options: {
                 assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
             }
@@ -316,6 +326,76 @@ module.exports = function (grunt) {
                 'svgmin'
             ]
         },
+
+        // Package all the html partials into a single javascript payload
+        //ngtemplates: {
+        //    options: {
+        //        // This should be the name of your apps angular module
+        //        module: 'sbAdminApp',
+        //        htmlmin: {
+        //            collapseBooleanAttributes: true,
+        //            collapseWhitespace: true,
+        //            removeAttributeQuotes: true,
+        //            removeEmptyAttributes: true,
+        //            removeRedundantAttributes: true,
+        //            removeScriptTypeAttributes: true,
+        //            removeStyleLinkTypeAttributes: true
+        //        },
+        //        usemin: 'app/app.js'
+        //    },
+        //    main: {
+        //        cwd: '<%= yeoman.client %>',
+        //        src: ['app/**/*.html'],
+        //        dest: '.tmp/templates.js'
+        //    },
+        //    tmp: {
+        //        cwd: '.tmp',
+        //        src: ['app/**/*.html'],
+        //        dest: '.tmp/tmp-templates.js'
+        //    }
+        //},
+
+        injector: {
+            options: {},
+            // Inject application script files into index.html (doesn't include bower)
+            scripts: {
+                options: {
+                    transform: function(filePath) {
+                        filePath = filePath.replace('/gis-ui/', '');
+                        filePath = filePath.replace('/.tmp/', '');
+                        return '<script src="' + filePath + '"></script>';
+                    },
+                    starttag: '<!-- injector:js -->',
+                    endtag: '<!-- endinjector -->'
+                },
+                files: {
+                    '<%= yeoman.app %>/index.html': [
+                        [
+                            '{.tmp,<%= yeoman.app %>}/app/**/!(*.spec|*.mock).js',
+                            '!{.tmp,<%= yeoman.app %>}/app/app.js'
+                        ]
+                    ]
+                }
+            },
+
+            // Inject component css into index.html
+            css: {
+                options: {
+                    transform: function(filePath) {
+                        filePath = filePath.replace('/gis-ui/', '');
+                        filePath = filePath.replace('/.tmp/', '');
+                        return '<link rel="stylesheet" href="' + filePath + '">';
+                    },
+                    starttag: '<!-- injector:css -->',
+                    endtag: '<!-- endinjector -->'
+                },
+                files: {
+                    '<%= yeoman.app %>/index.html': [
+                        '<%= yeoman.app %>/app/**/*.css'
+                    ]
+                }
+            }
+        }
     });
 
     grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -326,8 +406,10 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'concurrent:server',
+            'injector',
             'autoprefixer',
             'connect:livereload',
+            'wiredep',
             'watch'
         ]);
     });
@@ -348,6 +430,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'concurrent:dist',
+        'injector',
         'copy:dist',
         'cssmin',
         'ngAnnotate',

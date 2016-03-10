@@ -6,13 +6,14 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" name="loginForm" novalidate>
-                        <fieldset>
+                    <div class="col-md-12">
+                        <form class="form-horizontal" name="loginForm" novalidate>
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control" ng-model="vm.user.email" required>
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="form-control" ng-model="vm.user.password" required>
+                                <input type="password" name="password" class="form-control" ng-model="vm.user.password"
+                                       required>
                             </div>
                             <div class="checkbox">
                                 <label>
@@ -20,7 +21,8 @@
                                 </label>
                             </div>
                             <div class="form-group has-error">
-                                <p class="help-block" ng-show="loginForm.email.$error.required && loginForm.password.$error.required && vm.submitted">
+                                <p class="help-block"
+                                   ng-show="loginForm.email.$error.required && loginForm.password.$error.required && vm.submitted">
                                     Please enter your email and password.
                                 </p>
 
@@ -30,9 +32,9 @@
 
                                 <p class="help-block">{{ vm.errors.other }}</p>
                             </div>
-                            <a ng-click="vm.login()" class="btn btn-lg btn-success btn-block">Login</a>
-                        </fieldset>
-                    </form>
+                            <a ng-click="vm.login(loginForm)" class="btn btn-lg btn-success btn-block">Login</a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
