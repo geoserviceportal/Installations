@@ -101,10 +101,10 @@ angular
         templateUrl:'app/account/blank.html',
         url:'/blank'
     })
-      .state('login',{
-        templateUrl:'app/account/login.html',
-        url:'/login'
-    })
+    //  .state('login',{
+    //    templateUrl:'app/account/login.html',
+    //    url:'/login'
+    //})
       .state('dashboard.chart',{
         templateUrl:'app/chart/chart.html',
         url:'/chart',
