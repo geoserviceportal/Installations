@@ -7,7 +7,8 @@ angular.module('sbAdminApp')
                 url: '/login',
                 templateUrl:'app/account/login/login.html',
                 controller: 'LoginCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                pageTitle: 'Login Page'
             })
             .state('logout', {
                 url: '/logout?referrer',

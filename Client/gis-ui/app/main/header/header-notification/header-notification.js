@@ -7,12 +7,17 @@
  * # adminPosHeader
  */
 angular.module('sbAdminApp')
-	.directive('headerNotification',function(){
-		return {
-        templateUrl:'app/main/header/header-notification/header-notification.html',
-        restrict: 'E',
-        replace: true,
-    	}
-	});
+    .directive('headerNotification', function () {
+        return {
+            templateUrl: 'app/main/header/header-notification/header-notification.html',
+            restrict: 'E',
+            replace: true,
+            controller: function (Auth) {
+                var vm = this;
+                vm.logout = Auth.logout;
+            },
+            controllerAs: 'vm'
+        }
+    });
 
 

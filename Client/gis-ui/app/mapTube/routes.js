@@ -6,7 +6,7 @@ angular.module('sbAdminApp')
             .state('dashboard.mapTube', {
                 url: '/map-tube',
                 templateUrl:'app/mapTube/index.html',
-                controller: 'mapTubeCtrl',
+                controller: 'MapTubeCtrl',
                 controllerAs: 'vm'
             });
     });

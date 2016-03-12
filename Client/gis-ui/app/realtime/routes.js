@@ -6,7 +6,7 @@ angular.module('sbAdminApp')
             .state('dashboard.realtime', {
                 url: '/realtime',
                 templateUrl:'app/realtime/index.html',
-                controller: 'realtimeCtrl',
+                controller: 'RealtimeCtrl',
                 controllerAs: 'vm'
             });
     });

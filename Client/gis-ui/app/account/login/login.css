@@ -1,0 +1,26 @@
+.btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border: 1px solid #335190;
+}
+
+.btn-facebook:hover, .btn-facebook:focus {
+    color: #fff;
+    background-color: #294786;
+}
+
+.fa-facebook {
+    margin-right: 5px;
+}
+
+.login-page-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+/*http://depositphotos.com/49214979/stock-illustration-city-map-abstract-seamless-pattern.html*/
+.login-page {
+    background-image: url('../../../assets/img/login-bg.jpg');
+    background-repeat: repeat;
+    height: 100%;
+}
