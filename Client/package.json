@@ -44,5 +44,8 @@
     "start": "grunt serve",
     "dist": "grunt serve:dist",
     "postinstall": "bower install"
+  },
+  "dependencies": {
+    "bower": "^1.7.7"
   }
 }
