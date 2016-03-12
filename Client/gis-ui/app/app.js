@@ -16,10 +16,11 @@ angular
         'leaflet-directive',
         'ngResource',
         'ngCookies',
-        'satellizer'
+        'satellizer',
+        'pascalprecht.translate'
     ])
-    .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$authProvider',
-        function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $authProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$authProvider', '$translateProvider',
+        function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $authProvider, $translateProvider) {
 
             $authProvider.facebook({
                 clientId: '1581139255538498'
@@ -160,6 +161,15 @@ angular
                     templateUrl: 'app/main/grid.html',
                     url: '/grid'
                 });
+
+            $translateProvider.useStaticFilesLoader({
+                prefix: 'i18n/',
+                suffix: '.json'
+            });
+
+            $translateProvider.preferredLanguage('en');
+            $translateProvider.useLocalStorage();
+            $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
 
         }])
     .run(['$rootScope', 'Auth', '$state', '$stateParams', function ($rootScope, Auth, $state, $stateParams) {

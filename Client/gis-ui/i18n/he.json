@@ -1,0 +1,13 @@
+{
+  "sidebar": {
+    "dashboard": "לוח בקרה",
+    "map-tube" : "Map-Tube",
+    "online-maps": "מפות מקוונות"
+  },
+  "map": {
+    "openStreetMap": "OpenStreetMap מפות",
+    "open-fire-map": "הצג מפת כוחות הצלה",
+    "fire-stations": "תחנות כיבוי אש",
+    "emergency-rooms": "חדרי מיון"
+  }
+}

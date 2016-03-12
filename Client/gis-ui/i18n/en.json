@@ -1,0 +1,13 @@
+{
+  "sidebar": {
+    "dashboard": "dashboard",
+    "map-tube" : "Map-Tube",
+    "online-maps": "Online Maps"
+  },
+  "map": {
+    "openStreetMap": "OpenStreetMap",
+    "open-fire-map": "Open Fire Map",
+    "fire-stations": "Fire Stations",
+    "emergency-rooms": "Emergency Rooms"
+  }
+}

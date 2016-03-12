@@ -8,11 +8,28 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html" title="GIS Panel v0.1 BETA">
-            <span><img style="max-width:110px; margin-top: -5px;" src="../../../assets/img/logo_SCE.png"></span>
-            GIS Panel v0.1 BETA</a>
+            <span><img style="max-width:110px; margin-top: -5px;" src="assets/img/logo_SCE.png"></span>
+            GIS Panel v0.0.1</a>
     </div>
+
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-flag fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li ng-class="headerCtrl.proposedLanguage() === 'he' ? 'active' : ''">
+                    <a ng-click="headerCtrl.switchLang('he')" href=""><i class="fa fa-flag fa-fw"></i> Hebrew</a>
+                </li>
+                <li ng-class="headerCtrl.proposedLanguage() === 'en' ? 'active' : ''">
+                    <a ng-click="headerCtrl.switchLang('en')" href=""><i class="fa fa-flag fa-fw"></i> English</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
     <!-- /.navbar-header -->
-    <header-notification></header-notification>
+    <header-notificatsion></header-notificatsion>
 
     <sidebar></sidebar>
 </nav>

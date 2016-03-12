@@ -7,12 +7,22 @@
  * # adminPosHeader
  */
 angular.module('sbAdminApp')
-	.directive('header',function(){
-		return {
-        templateUrl:'app/main/header/header.html',
-        restrict: 'E',
-        replace: true,
-    	}
-	});
+    .directive('header', function () {
+        return {
+            templateUrl: 'app/main/header/header.html',
+            restrict: 'E',
+            replace: true,
+            controller: function ($translate) {
+                var vm = this;
+
+                vm.proposedLanguage = $translate.proposedLanguage;
+
+                vm.switchLang = function (lang) {
+                    $translate.use(lang);
+                };
+            },
+            controllerAs: 'headerCtrl'
+        }
+    });
 
 
