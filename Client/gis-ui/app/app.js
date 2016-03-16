@@ -56,31 +56,27 @@ angular
                                             "lib/angular-toggle-switch/angular-toggle-switch.css"
                                         ]
                                     }),
+
                                 $ocLazyLoad.load(
                                     {
-                                        name: 'ngAnimate',
-                                        files: ['lib/angular-animate/angular-animate.js']
+                                        name: 'ngCookies',
+                                        files: ['lib/angular-cookies/angular-cookies.js']
+                                    }),
+                                $ocLazyLoad.load(
+                                    {
+                                        name: 'ngResource',
+                                        files: ['lib/angular-resource/angular-resource.js']
+                                    }),
+                                $ocLazyLoad.load(
+                                    {
+                                        name: 'ngSanitize',
+                                        files: ['lib/angular-sanitize/angular-sanitize.js']
+                                    }),
+                                $ocLazyLoad.load(
+                                    {
+                                        name: 'ngTouch',
+                                        files: ['lib/angular-touch/angular-touch.js']
                                     })
-                            $ocLazyLoad.load(
-                                {
-                                    name: 'ngCookies',
-                                    files: ['lib/angular-cookies/angular-cookies.js']
-                                })
-                            $ocLazyLoad.load(
-                                {
-                                    name: 'ngResource',
-                                    files: ['lib/angular-resource/angular-resource.js']
-                                })
-                            $ocLazyLoad.load(
-                                {
-                                    name: 'ngSanitize',
-                                    files: ['lib/angular-sanitize/angular-sanitize.js']
-                                })
-                            $ocLazyLoad.load(
-                                {
-                                    name: 'ngTouch',
-                                    files: ['lib/angular-touch/angular-touch.js']
-                                })
                         }
                     }
                 })

@@ -7,7 +7,7 @@
  * Controller of the sbAdminApp
  */
 angular.module('sbAdminApp')
-    .controller('MainCtrl', function ($rootScope, $scope, leafletData, $translate) {
+    .controller('MainCtrl', ['$rootScope', '$scope', 'leafletData', '$translate', function ($rootScope, $scope, leafletData, $translate) {
 
         $scope.mapLoaded = false;
 
@@ -207,4 +207,4 @@ angular.module('sbAdminApp')
         $scope.existsHillshadeLayer = function () {
             return ("hillshade" in this.layers.overlays);
         };
-    });
+    }]);

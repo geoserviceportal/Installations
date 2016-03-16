@@ -12,7 +12,7 @@ angular.module('sbAdminApp')
             templateUrl: 'app/main/header/header.html',
             restrict: 'E',
             replace: true,
-            controller: function ($translate) {
+            controller: ['$translate', function ($translate) {
                 var vm = this;
 
                 vm.proposedLanguage = $translate.proposedLanguage;
@@ -20,7 +20,7 @@ angular.module('sbAdminApp')
                 vm.switchLang = function (lang) {
                     $translate.use(lang);
                 };
-            },
+            }],
             controllerAs: 'headerCtrl'
         }
     });

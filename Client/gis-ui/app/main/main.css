@@ -1,6 +1,6 @@
 /* Space out content a bit */
 body {
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -89,10 +89,10 @@ body {
 }
 
 .map-container {
-    margin-left: -30px;
-    height: 100%;
-    width: 100%;
-    position: fixed;
+    height: calc( 100vh - 101px );
+    width: calc(100% + 44px);
+    left: -30px;
+    position: relative;
 }
 .angular-leaflet-control-layers {
     position: absolute;
@@ -148,4 +148,19 @@ body {
     float: left;
     margin-right: 8px;
     opacity: 0.7;
+}
+
+footer {
+    display: flex;
+    position: relative;
+    min-height: 50px;
+    border: 1px solid transparent;
+    background-color: #2C3E50;
+}
+
+footer p {
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin: auto;
 }
