@@ -110,6 +110,14 @@ angular.module('sbAdminApp')
                             }
                             ,
                             group: translations['map.open-fire-map']
+                        },
+                        draw: {
+                            name: 'draw',
+                            type: 'group',
+                            visible: true,
+                            layerParams: {
+                                showOnSelector: false
+                            }
                         }
                     }
                 };
@@ -160,17 +168,17 @@ angular.module('sbAdminApp')
                         group: "Raster"
                     };
                 };
+
                 // Wait for center to be stablished
                 leafletData.getMap().then(function () {
-                    $scope.controls.minimap = {
-                        type: 'minimap',
-                        layer: {
-                            name: 'OpenStreetMap',
-                            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                            type: 'xyz'
-                        },
-                        toggleDisplay: true
-                    };
+                    leafletData.getLayers().then(function(baselayers) {
+                        var drawnItems = baselayers.overlays.draw;
+                        map.on('draw:created', function (e) {
+                            var layer = e.layer;
+                            drawnItems.addLayer(layer);
+                            console.log(JSON.stringify(layer.toGeoJSON()));
+                        });
+                    });
                 });
 
                 $scope.mapLoaded = true;
@@ -178,7 +186,19 @@ angular.module('sbAdminApp')
         }
 
         $scope.controls = {
-            custom: new L.Control.Fullscreen()
+            fullscreen: {
+                position: 'topleft'
+            },
+            minimap: {
+                type: 'minimap',
+                layer: {
+                    name: 'OpenStreetMap',
+                    url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    type: 'xyz'
+                },
+                toggleDisplay: true
+            },
+            draw: {position: 'bottomleft'}
         };
 
         $scope.defaults = {
