@@ -1,4 +1,7 @@
 # Installation Guide
+
+// for client only enter client folder and reaf its instructions
+
 1. Download & install XAMPP from here [Download](https://www.apachefriends.org/index.html) or WAMP from here [Download](http://www.wampserver.com/en/)
 2. Download & install NodeJS from here  [Download](https://nodejs.org/dist/v4.3.2/node-v4.3.2-x64.msi)
 3. Download & install MongoDB from here [Download](https://www.mongodb.org/downloads#previous) - select version 3.0.9
