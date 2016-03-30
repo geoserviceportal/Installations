@@ -9,7 +9,7 @@
 $ sudo npm install -g grunt-cli
 $ sudo npm install -g bower
 
-// for Windows users
+// For Windows users
 npm install -g grunt-cli
 npm install -g bower
 ```
