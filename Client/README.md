@@ -1,6 +1,7 @@
 ## GIS - client side
 
 ## Installation
+####0. Download and Install [NodeJS](https://nodejs.org)
 ####1.  Make sure you have [bower](http://bower.io/), [grunt-cli](https://www.npmjs.com/package/grunt-cli) and  [npm](https://www.npmjs.org/) installed globally
  
  
