@@ -6,9 +6,15 @@
  
  
 ```sh
+// Linux users
 $ sudo apt-get install npm
 $ sudo npm install -g grunt-cli
 $ sudo npm install -g bower
+
+// Windows users
+apt-get install npm
+npm install -g grunt-cli
+npm install -g bower
 ```
 ####3. On the command prompt run the following commands
 
