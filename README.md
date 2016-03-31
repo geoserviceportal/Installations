@@ -6,4 +6,4 @@
 5. Go to your nodejs folder , open the cmd and write ``` npm install mongo-express `` , for more instructions click [here](https://github.com/mongo-express/mongo-express)
 6. Enter node_modules/mongo-express and open the cmd and write ``` node app.js ```  then open your browser and write @ address bar http://localhost:8081 - you will see the admin panel for mongodb
 7. Create GSP Folder and copy parse server files and follow the instructions in example folder inside.
-8. Copy portal-web to your c:/xampp/htdocs folder ( assuming you install XAMPP there ), open your browser and write @ address bar http://localhost/portal-web ( dont forget to start apache from xampp control panel )
+8. Copy Clinet folder to your c:/xampp/htdocs folder ( assuming you install XAMPP there ), open your browser and write @ address bar http://localhost/client ( dont forget to start apache from xampp control panel )
