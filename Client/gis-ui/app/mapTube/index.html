@@ -1,97 +1,12 @@
-<div>
+<div ng-controller="MapTubeCtrl as maptube">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Map Tube</h1>
-            <ul class="list-group">
+            <ul class="list-group" ng-repeat="category in maptube.categories">
                 <li class="list-group-item">
-                    <p>Physical data</p>
-                    <ul class="list-group">
+                    <p>{{category.title}}</p>
+                    <ul class="list-group" ng-repeat="subcat in category.subcats">
                         <li class="list-group-item">
-                            <p>Land and Ocean</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Weather and Climate</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Hydrology</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Land cover</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Ecology</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Mineral resources</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Water sources</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Natural Disasters</p>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list-group-item">
-                    <p>Human Data</p>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <p>Administrative boundaries</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Environmental Boundaries</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Land use</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Population</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Building</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Roads</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Transportation</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Communication</p>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list-group-item">
-                    <p>Country (specific)</p>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <p>Israel</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>England</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>Sweden</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>...</p>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list-group-item">
-                    <p>Provider (specific)</p>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <p>OSM</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>VMAP0</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>VMAO1</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p>...</p>
+                            <p>{{subcat.title}}</p>
                         </li>
                     </ul>
                 </li>
