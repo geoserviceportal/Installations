@@ -1,0 +1,15 @@
+<html ng-app="myLeaflet">
+<head>
+  <title>Leaflet Example</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="geo-json-sample.js"></script>
+  <script src="leaflet-directive.js"></script>
+</head>
+
+<body ng-controller="MyCtrl as vm">
+  <div my-leaflet="vm.map"></div>
+</body>
+
+</html>
