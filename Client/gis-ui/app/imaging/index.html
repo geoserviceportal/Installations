@@ -1,7 +1,25 @@
-<div>
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Imaging</h1>
-        </div>
+<div class="map-container">
+    <div id="view3dDiv"></div>
+    <div id="view2dDiv">
+        <div id="extentDiv"></div>
+
+    </div>
+    <div id="elevationDiv">
+        <label>Elevation:
+            <input id="elevationInput" type="checkbox" checked="yes">
+
+        </label>
+    </div>
+
+    <div id="buttonsDiv">
+        <button id="rotateAntiClockwiseSpan" title="Rotate 90°">↻</button>
+        <button id="indicatorSpan"></button>
+        <button id="rotateClockwiseSpan" title="Rotate 90°">↺</button>
+
+    </div>
+
+    <div id="viewDiv">
+        <div id="BasemapToggleDiv" title="main map"></div>
+        <div id="BasemapToggleDiv2" title="side map"></div>
     </div>
 </div>
