@@ -60,3 +60,9 @@
     right: 6px;
     z-index: 3;
 }
+#searchDiv {
+      position: absolute;
+      z-index: 20;
+      top: 12px;
+      left: 500px;
+ }
