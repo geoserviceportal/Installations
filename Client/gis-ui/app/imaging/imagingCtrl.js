@@ -18,12 +18,9 @@ require([
     "dojo/on",
     "esri/widgets/BasemapToggle",
     "esri/widgets/BasemapToggle/BasemapToggleViewModel",
-	"esri/widgets/Search",
-    "esri/widgets/Search/SearchViewModel",
     "dojo/promise/all",
     "dojo/domReady!"
-], function(Map, SceneView, MapView, watchUtils, dom,on,BasemapToggle, BasemapToggleVM ,Search,
-      SearchVM, all) {
+], function(Map, SceneView, MapView, watchUtils, dom,on,BasemapToggle, BasemapToggleVM, all) {
 
     //Create the 3d map
     var map3d = new Map({
@@ -55,20 +52,6 @@ require([
     view2d.ui.components = [];
 
     var extentDiv = dom.byId("extentDiv");
-	
-	 //////////////////////////////search//////////////////////
-	  
-	   var searchWidget = new Search({
-        //Setting widget properties via viewModel is subject to 
-        //change for the 4.0 final release  
-        viewModel: new SearchVM({
-          view: view3d
-        })
-      }, "searchDiv");
-
-      searchWidget.startup();
-	  
-	  /////////////////////////////////////////end search ////////
 
     ///////////////////////////////////toggle//////////////////////
 
