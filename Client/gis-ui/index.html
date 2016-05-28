@@ -8,18 +8,18 @@
     <!-- build:css(.) styles/vendor.css -->
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css"/>
     <!-- bower:css -->
-    <link rel='stylesheet' href='lib/angular-loading-bar/build/loading-bar.css' />
-    <link rel='stylesheet' href='lib/angular-toggle-switch/angular-toggle-switch.css' />
-    <link rel='stylesheet' href='lib/metisMenu/dist/metisMenu.css' />
-    <link rel='stylesheet' href='lib/angular-chart.js/dist/angular-chart.css' />
-    <link rel='stylesheet' href='lib/angular-ui-grid/ui-grid.css' />
-    <link rel='stylesheet' href='lib/bootstrap/dist/css/bootstrap.css' />
-    <link rel='stylesheet' href='lib/leaflet/dist/leaflet.css' />
-    <link rel='stylesheet' href='lib/leaflet-dist/leaflet.css' />
-    <link rel='stylesheet' href='lib/leaflet.locatecontrol/dist/L.Control.Locate.css' />
-    <link rel='stylesheet' href='lib/leaflet.fullscreen/Control.FullScreen.css' />
-    <link rel='stylesheet' href='lib/leaflet-minimap/dist/Control.MiniMap.min.css' />
-    <link rel='stylesheet' href='lib/leaflet-draw/dist/leaflet.draw.css' />
+    <link rel="stylesheet" href="lib/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="lib/angular-toggle-switch/angular-toggle-switch.css" />
+    <link rel="stylesheet" href="lib/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="lib/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="lib/angular-ui-grid/ui-grid.css" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="lib/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="lib/leaflet-dist/leaflet.css" />
+    <link rel="stylesheet" href="lib/leaflet.locatecontrol/dist/L.Control.Locate.css" />
+    <link rel="stylesheet" href="lib/leaflet.fullscreen/Control.FullScreen.css" />
+    <link rel="stylesheet" href="lib/leaflet-minimap/dist/Control.MiniMap.min.css" />
+    <link rel="stylesheet" href="lib/leaflet-draw/dist/leaflet.draw.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- injector:css -->
@@ -46,6 +46,8 @@
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
           rel='stylesheet'/>
 
+    <link rel="stylesheet" href="https://js.arcgis.com/4.0beta3/esri/css/main.css">
+
 </head>
 <body>
 <div>
@@ -68,6 +70,9 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
 </script>
+
+<!-- load Esri JSAPI -->
+
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
@@ -104,6 +109,7 @@
 <script src="lib/leaflet-draw/dist/leaflet.draw-src.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
+<script src="https://js.arcgis.com/4.0beta3/"></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 <script src="app/app.js"></script>
 <!-- injector:js -->
@@ -112,6 +118,7 @@
 <script src="app/account/login/loginCtrl.js"></script>
 <script src="app/account/user.service.js"></script>
 <script src="app/chart/chartContoller.js"></script>
+<script src="app/common/services/linkSvc.js"></script>
 <script src="app/cyber/cyberCtrl.js"></script>
 <script src="app/cyber/routes.js"></script>
 <script src="app/imaging/imagingCtrl.js"></script>

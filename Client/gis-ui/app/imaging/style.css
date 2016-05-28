@@ -1,0 +1,69 @@
+#view3dDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    z-index: -1;
+}
+
+#view2dDiv {
+    position: absolute;
+    top: 24px;
+    right: 12px;
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    z-index: 1;
+}
+
+#extentDiv {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 2;
+}
+#elevationDiv {
+    position: absolute;
+    top: 12px;
+    left: 70px;
+
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+#buttonsDiv {
+    position: absolute;
+    top: 12px;
+    left: 200px;
+    padding: 12px;
+    background-color: rgba(200, 200, 200, 0.5);
+    border: 1px solid black;
+}
+
+#indicatorSpan {
+    display: inline-block;
+    vertical-align: middle;
+    top: 12px;
+    left: 12px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(100, 100, 100, 0.8);
+    border: 2px solid #ccc;
+}
+#BasemapToggleDiv {
+    position: absolute;
+    top: 140px;
+    left: 10px;
+    z-index: 3;
+}
+#BasemapToggleDiv2 {
+    position: absolute;
+    top: 12px;
+    right: 6px;
+    z-index: 3;
+
+}
+#searchDiv {
+      position: absolute;
+      z-index: 20;
+      top: 12px;
+      left: 500px;
+    }
