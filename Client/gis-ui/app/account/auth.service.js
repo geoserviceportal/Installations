@@ -31,10 +31,51 @@ angular.module('sbAdminApp')
                     email: user.email,
                     password: user.password
                 };
+				Parse.initialize("geokey", "ll");
+				Parse.serverURL = 'http://geoservicesportal.com:1337/parse';
 
-                currentUser = user;
+					
+				
+				return Parse.User.logIn(user.email, user.password, {
+				  success: function(user) {
+					var query = new Parse.Query(Parse.User);
+					query.find({
+					  success: function(results) {
+						// console.log(results);
+						//safeCb(callback)(null, user);
+						callback(user);
+						 
+					  },
+					  error: function(err){
+						  callback(err);
+					  }
+					});
+				  },
+				  error: function(err){
+					  callback(err);
+				  }
+				})
 
-                return $q.when(user);
+				/*return query.first({
+				  success: function(object) {
+					if(object==undefined){
+						safeCb(callback)("Authentication Failed");
+						return $q.reject("Authentication Failed");
+					}else{
+						safeCb(callback)(null, user);
+						return user;
+					}
+					
+				},
+					error: function(error) {
+						console.log("Error: " + error.code + " " + error.message);
+						safeCb(callback)(err.data);
+						return $q.reject(err.data);
+					  }
+					});
+                currentUser = user;*/
+
+                
                 //return $http.post('/auth/local', {
                 //    email: user.email,
                 //    password: user.password
