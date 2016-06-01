@@ -3,12 +3,12 @@
         <div class="col-lg-12">
 			<h1 class="padding-bottom">{{vm.name}}</h1>
 			<button type="button" class="btn btn-primary" ng-click="vm.Thing()" ">Thingful</button>
-			<!--<button type="button" class="btn btn-success" ng-click="vm.geoTwitt()">Geo-Tweet</button>-->
 			<button type="button" class="btn btn-info" ng-click="vm.iot()">IoT</button>
 			<button type="button" class="btn btn-warning" ng-click="vm.Tera()">Terra Incognita</button>
 			<button type="button" class="btn btn-danger" ng-click="vm.Lumi()">Luminous Flickr</button>
 			<button type="button" class="btn btn-success" ng-click="vm.Ping()">Tweetping</button>
 			<button type="button" class="btn btn-info" ng-click="vm.writeUs()">Add Link</button>
+			<button type="button" class="btn btn-warning" ng-click="vm.ViewLinks()">Other Sites</button>
 			<hr/>
         </div>
 		
@@ -17,13 +17,19 @@
                     <div class="panel panel-info">
                         <div  class="panel-heading" ng-bind="vm.sampleTitle"></div>
                         <div ng-show="vm.myinfo">
+						<a ng-show="vm.links" href='https://google.com'>  Google - Added by vital@gmail.com - 27/05/2016<br></a>
+						<a ng-show="vm.links" href='https://sce.ac.il'>  SCE - Added by ariel@gmail.com - 29/05/2016<br></a>
+						<a ng-show="vm.links" href='https://wikipedia.com'>  Wikipedia - Added by shimi@gmail.com - 01/06/2016<br></a>
 						<div class="panel-body"
                             <p ng-bind="vm.sampleText"></p>
+							
                         </div>
 						<div id="txxt" ng-show="vm.txt" class="form-group">
-                            <input class="form-control">
+                            <input class="form-control" id="LinkTB" ng-show="vm.txt">
+							
                         </div>
 						<button ng-show="vm.txt" type="button" ng-click="vm.vital(); vm.sendMail()" class="btn btn-default">Send</button>
+						
                     </div>
 					<img ng-if="vm.showG" src = "http://cdn.makeagif.com/media/4-13-2016/yZz-vQ.gif"/>
                 </div>

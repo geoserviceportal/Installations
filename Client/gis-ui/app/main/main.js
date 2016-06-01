@@ -36,9 +36,7 @@ angular.module('sbAdminApp')
                     }
                 };
                 $scope.madrid = {
-                    lat: 40.415363,
-                    lng: -3.707398,
-                    zoom: 11
+                    lat: 31.807762, lng:34.658886, zoom: 11
                 };
                 $scope.markers = {
                     m1: {
