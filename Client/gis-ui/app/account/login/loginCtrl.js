@@ -2,7 +2,7 @@
 
 angular.module('sbAdminApp').controller('LoginCtrl', loginCtrl);
 
-function loginCtrl($state, $auth, Auth) {
+function loginCtrl($scope,$state, $auth, Auth,$cookieStore,$rootScope) {
     var vm = this;
 
     vm.user = {};
@@ -16,7 +16,15 @@ function loginCtrl($state, $auth, Auth) {
     function authenticate(provider) {
         $auth.authenticate(provider);
     }
-
+	function saveUser(data){
+		 $rootScope.globals = {
+                currentUser: {
+                    username: data.username
+                    
+                }
+            };
+			$cookieStore.put('globals', $rootScope.globals);
+	}
     function login(form) {
         vm.submitted = true;
 
@@ -24,14 +32,24 @@ function loginCtrl($state, $auth, Auth) {
             Auth.login({
                     email: vm.user.email,
                     password: vm.user.password
-                })
-                .then(function () {
+                },function(results){
+					console.log(results);
+					if(results._objCount>0){
+						saveUser({username:vm.user.email});
+						$state.go('dashboard.home');
+					}else{
+						console.log("error");
+						vm.errors.other = "Authentication Failed";
+						$scope.$apply();
+					}
+				});
+                /*.then(function () {
                     $state.go('dashboard.home');
                 })
                 .catch(function (err) {
                     vm.errors.other = err.message;
-                });
+                });*/
         }
-        $state.go('dashboard.home');
+        //$state.go('dashboard.home');
     }
 }

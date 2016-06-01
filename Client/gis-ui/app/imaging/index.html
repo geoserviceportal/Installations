@@ -1,26 +1,85 @@
-<div class="map-container">
-    <div id="view3dDiv"></div>
-    <div id="view2dDiv">
-        <div id="extentDiv"></div>
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Imaging</h1>
+            <button type="button" id="earthquakebtn" class="btn btn-lg btn-default btn-primary">EarthQuake</button>
+            <button type="button" id="crimebtn" class="btn btn-lg btn-default">Crime</button>
+            <button type="button" id="weatherbtn" class="btn btn-lg btn-default">Weather</button>
+            <hr/><br>
+            <div id="earthquakeForm" style="    display: block;">
+                <h2 id="EarthQuake">EarthQuake Probability </h2>
+                <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> "Click on the map to see the earthquake probability"</div>
+                <div class="form-group col-xs-4">
+                    <label>Radius</label>
+                    <select class="form-control" id="radiusSelect">
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+                        <option value="200">200</option>
+                        <option value="250">250</option>
+                        <option value="500">500</option>
+                    </select>
+                </div>
+                <div class="form-group col-xs-4">
+                    <label>Magnetite</label>
+                    <input class="form-control" type="number" id="magnetiteSelect" min="1.0" max="10.0"/>
+                </div>
+                <div class="form-group col-xs-4">
+                    <button type="button" id="ResetMap" class="btn btn-lg btn-warning">Reset map</button>
+                </div>
+                <br>
+            </div><!-- div for EQ settings-->
+            <div id="crime" style="    display: none;position: relative">
+                <div class="form-group col-xs-4">
+                    <label>api select</label>
+                    <select class="form-control" id="mapSelect" onchange=selectapi()>
+                        <option value="1">yourmapper</option>
+                        <option value="2">crimereports</option>
+                        <option value="3">spotcrime *subscribe user only</option>
+                    </select>
+                </div>
+                <br>
+                <div id="youmap" style="display: none">
 
+                <div id="YMWidget" name="YMWidget" class="YMWidget"></div>
+                <div align="center" style="clear:both"><em>Map and data services provided by</em> <a href="http://www.yourmapper.com/services.php" title="Visit Your Mapper to use this data on your website or mobile apps."><img src="http://static.yourmapper.com/images/ym-sig.gif" border="0" align="absmiddle"/></a></div>
+            </div>
+                <div id="spotcrime" style="display: none">
+                    <iframe style=" position: relative;width: 1000px;height: 500px;" src="http://www.spotcrime.com/ct/litchfield+county"></iframe>
+                </div>
+                <div id="crimereports" style="display: none">
+                <iframe style=" position: relative;width: 1000px;height: 500px;" src="https://preview.crimereports.com/#!/dashboard?incident_types=Assault%252CAssault%2520with%2520Deadly%2520Weapon%252CBreaking%2520%2526%2520Entering%252CDisorder%252CDrugs%252CHomicide%252CKidnapping%252CLiquor%252COther%2520Sexual%2520Offense%252CProperty%2520Crime%252CProperty%2520Crime%2520Commercial%252CProperty%2520Crime%2520Residential%252CQuality%2520of%2520Life%252CRobbery%252CSexual%2520Assault%252CSexual%2520Offense%252CTheft%252CTheft%2520from%2520Vehicle%252CTheft%2520of%2520Vehicle&start_date=2016-04-24&days=sunday%252Cmonday%252Ctuesday%252Cwednesday%252Cthursday%252Cfriday%252Csaturday&start_time=0&end_time=23&include_sex_offenders=false&lat=39&lng=-95&zoom=3&shapeIds=&current_tab=list"></iframe>
+            </div>
+            </div>
+            <div id="weatherForm" style="    display: none;">
+                <h2 id="Weather">Weather Probability </h2>
+                <div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> "Click on the map to see the weather probability in area"</div>
+              <br>  <div class="form-group col-xs-4">
+                    <label>Forecasting days</label>
+                    <input class="form-control" type="number" id="ForecastingDaysSelect" min="1.0" max="16.0"/>
+                </div>
+                <br>
+                <div class="container-fluid">
+                <div class="col-sm-3 col-sm-offset-5 blog-sidebar">
+                    <div class="panel panel-primary" style="    position: absolute;left: 110px;z-index: 1;">
+                        <div class="panel-heading" id="titlePanel" name="titlePanel">
+                            Forecasting weather Panel
+                        </div>
+                        <div class="panel-body" id="panelbody" name="panelbody">
+                            <p>select in the map location to forecasting a weather..</p>
+                        </div>
+
+                    </div>
+                </div>
+                    </div>
+            </div><!-- div for weather settings -->
+
+            <div id="map" style="position: relative;width: 1000px;height: 500px;"></div>
+
+        </div>
     </div>
-    <div id="elevationDiv">
-        <label>Elevation:
-            <input id="elevationInput" type="checkbox" checked="yes">
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://www.yourmapper.com/javascript/widget.php?c=&offcolumns=&maplist=&dataset=204&start=&end=&search=&num=100&location=&lat=&lon=&details=1&list=1&area=1&type=map&overlay=&key=7b1d0e5dca7c601574c0b665f1c40898"></script>
 
-        </label>
-    </div>
 
-    <div id="buttonsDiv">
-        <button id="rotateAntiClockwiseSpan" title="Rotate 90°">↻</button>
-        <button id="indicatorSpan"></button>
-        <button id="rotateClockwiseSpan" title="Rotate 90°">↺</button>
-
-    </div>
-
-    <div id="viewDiv">
-        <div id="BasemapToggleDiv" title="main map"></div>
-        <div id="BasemapToggleDiv2" title="side map"></div>
-    </div>
-	<div id="searchDiv"></div>
 </div>
