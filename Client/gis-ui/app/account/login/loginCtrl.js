@@ -34,13 +34,15 @@ function loginCtrl($scope,$state, $auth, Auth,$cookieStore,$rootScope) {
                     password: vm.user.password
                 },function(results){
 					console.log(results);
-					if(results._objCount>0){
+					if(results.success==true){
+						
 						saveUser({username:vm.user.email});
 						$state.go('dashboard.home');
 					}else{
 						console.log("error");
 						vm.errors.other = "Authentication Failed";
 						$scope.$apply();
+						
 					}
 				});
                 /*.then(function () {
