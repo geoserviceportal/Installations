@@ -41,13 +41,13 @@ angular.module('sbAdminApp')
 					var query = new Parse.Query(Parse.User);
 					query.find({
 					  success: function(results) {
-						// console.log(results);
+						 console.log(results);
 						//safeCb(callback)(null, user);
-						callback(user);
+						callback({success:true,user:user});
 						 
 					  },
 					  error: function(err){
-						  callback(err);
+						  callback({success:false,user:""});
 					  }
 					});
 				  },
